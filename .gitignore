@@ -1,0 +1,16 @@
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+node_modules/
+__pycache__/
+*.pyc
+
+# 生成产物（用户自己跑出来的行程，不该入仓）
+行程-*.html
+行程-*.md
+行程-*.pdf
+itinerary-*.html
+itinerary-*.md
+itinerary-*.pdf
