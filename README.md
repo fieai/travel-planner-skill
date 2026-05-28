@@ -45,22 +45,31 @@
 
 ### 安装
 
-skill 本体在 `skill/` 子目录下。安装就是把 `skill/` 接入你的 skill 目录。
+**推荐：通过 xman marketplace 一键安装（Claude Code）**
 
-**Claude Code 用户级**：
+```
+/plugin marketplace add fieai/xman
+/plugin install travel-planner@xman
+```
+
+**或者直接软链 skill（任何 Agent Skill 宿主）**
+
+skill 本体在 `skills/travel-planner/` 子目录下。
+
+Claude Code 用户级：
 
 ```bash
 git clone https://github.com/fieai/travel-planner-skill.git
-ln -s "$(pwd)/travel-planner-skill/skill" ~/.claude/skills/travel-planner
+ln -s "$(pwd)/travel-planner-skill/skills/travel-planner" ~/.claude/skills/travel-planner
 ```
 
-**Claude Code 项目级**：
+Claude Code 项目级：
 
 ```bash
-ln -s /path/to/travel-planner-skill/skill /path/to/your-project/.claude/skills/travel-planner
+ln -s /path/to/travel-planner-skill/skills/travel-planner /path/to/your-project/.claude/skills/travel-planner
 ```
 
-**Codex 等其他 Agent Skill 环境**：按各自约定把 `skill/` 软链或复制到对应的 skill 目录即可。skill 内部已经做了能力探测，会按宿主环境自动 fallback（追问退化为编号选项、并行子任务退化为串行等）。
+Codex 等其他 Agent Skill 宿主：按各自约定把 `skills/travel-planner/` 软链或复制到对应的 skill 目录。skill 内部已经做了能力探测，会按宿主环境自动 fallback（追问退化为编号选项、并行子任务退化为串行等）。
 
 ### 触发场景
 
@@ -78,13 +87,16 @@ skill metadata 里声明的触发条件：
 
 ```
 travel-planner-skill/
-├── skill/
-│   ├── SKILL.md                    主入口
-│   └── references/
-│       ├── orchestration.md        5 个断点 + 子 agent prompt 模板
-│       ├── data-sources.md         一手数据源清单
-│       ├── template.html           HTML 交付模板
-│       └── site-patterns/          域名级别的操作经验
+├── .claude-plugin/
+│   └── plugin.json                 Claude Code plugin manifest
+├── skills/
+│   └── travel-planner/
+│       ├── SKILL.md                主入口
+│       └── references/
+│           ├── orchestration.md    5 个断点 + 子 agent prompt 模板
+│           ├── data-sources.md     一手数据源清单
+│           ├── template.html       HTML 交付模板
+│           └── site-patterns/      域名级别的操作经验
 ├── LICENSE                         MIT
 └── README.md
 ```
@@ -154,22 +166,31 @@ Not features. Each one exists to avoid a specific class of failure.
 
 ### Install
 
-The actual skill is in `skill/`. Install means linking that subdirectory into your skill folder.
+**Recommended: install via the xman marketplace (Claude Code)**
 
-**Claude Code (user-level)**:
+```
+/plugin marketplace add fieai/xman
+/plugin install travel-planner@xman
+```
+
+**Or symlink the skill directly (any Agent Skill host)**
+
+The skill itself lives in `skills/travel-planner/`.
+
+Claude Code (user-level):
 
 ```bash
 git clone https://github.com/fieai/travel-planner-skill.git
-ln -s "$(pwd)/travel-planner-skill/skill" ~/.claude/skills/travel-planner
+ln -s "$(pwd)/travel-planner-skill/skills/travel-planner" ~/.claude/skills/travel-planner
 ```
 
-**Claude Code (project-level)**:
+Claude Code (project-level):
 
 ```bash
-ln -s /path/to/travel-planner-skill/skill /path/to/your-project/.claude/skills/travel-planner
+ln -s /path/to/travel-planner-skill/skills/travel-planner /path/to/your-project/.claude/skills/travel-planner
 ```
 
-**Codex and other Agent Skill hosts**: symlink or copy `skill/` into your host's skill directory. The skill probes its environment at runtime and falls back gracefully (structured-question UI degrades to numbered prompts, parallel subagent spawns degrade to sequential execution, and so on).
+Codex and other Agent Skill hosts: symlink or copy `skills/travel-planner/` into your host's skill directory. The skill probes its environment at runtime and falls back gracefully (structured-question UI degrades to numbered prompts, parallel subagent spawns degrade to sequential execution, and so on).
 
 ### When it triggers
 
@@ -187,13 +208,16 @@ If the user only wants hotel search, the skill hands off to `hotel-search` rathe
 
 ```
 travel-planner-skill/
-├── skill/
-│   ├── SKILL.md                    main entry
-│   └── references/
-│       ├── orchestration.md        five checkpoints + subagent prompt templates
-│       ├── data-sources.md         primary-source catalogue
-│       ├── template.html           HTML delivery template
-│       └── site-patterns/          per-domain operational notes
+├── .claude-plugin/
+│   └── plugin.json                 Claude Code plugin manifest
+├── skills/
+│   └── travel-planner/
+│       ├── SKILL.md                main entry
+│       └── references/
+│           ├── orchestration.md    five checkpoints + subagent prompt templates
+│           ├── data-sources.md     primary-source catalogue
+│           ├── template.html       HTML delivery template
+│           └── site-patterns/      per-domain operational notes
 ├── LICENSE                         MIT
 └── README.md
 ```

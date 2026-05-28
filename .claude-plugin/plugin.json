@@ -1,0 +1,20 @@
+{
+  "name": "travel-planner",
+  "displayName": "Travel Planner",
+  "version": "0.1.0",
+  "description": "中文用户为主的旅行行程规划 skill：5 个断点、网络降级、PDF 兜底",
+  "author": {
+    "name": "fieai"
+  },
+  "homepage": "https://github.com/fieai/travel-planner-skill",
+  "repository": "https://github.com/fieai/travel-planner-skill",
+  "license": "MIT",
+  "keywords": [
+    "travel",
+    "itinerary",
+    "trip-planning",
+    "china",
+    "agent-skill",
+    "claude-skill"
+  ]
+}
