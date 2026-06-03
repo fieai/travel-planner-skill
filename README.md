@@ -1,3 +1,6 @@
+> ⚠️ **本仓库已归档（read-only）。** travel-planner 已迁入 monorepo **[fieai/lifekit](https://github.com/fieai/lifekit)**（`plugins/travel-planner`）。
+> 安装：`/plugin marketplace add fieai/lifekit` → `/plugin install travel-planner@lifekit`。后续更新只在 lifekit 进行。
+
 <div align="center">
 
 # travel-planner
